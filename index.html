@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLOODGUARD - Thư Viện Hướng Dẫn An Toàn</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8acNZmFfrnLmRt14f26t9-wBCRkAoXYUrNEiyzQIQ3h9esIa8zse02tqIzx_6PYQM4ko6VoGMZ55cvEtctaNfOp0TV9-k8EJ3eUwWA3QKTYYIwLslFF2UF3F0yXCi_1riRvfO5MpdQ_JbWiBgrcy5pjSCU18lTgbFIX9ir5oRJp8YhQ_H7Ll08GMA7tHMA24MPQY0lCxzL3gdfB-D2wghHUaxiBdZ6ihQKmJUlUCBJKDc1LIOZzdPFU_W6gPNMsafGSBXY0SUM4iXNHc6y5MLdacLNRuTjs5eoSOiFn9VxOoe08XSnBWfUkQ86HIW8zaCQ1tlLYf-j9iwsadeQWRH7x9EsiO6_UH5IIj3HuJx-lSNYdFb5Vr_uvKCEnq6LXvwz0r2fDIq7ohqHLoJ4kPlAF5SahhU-WXXMlaR_7lUMjgKM9rJfda6I-rFYpTUX2xgGZLwlXC5NZ4C90uE3S3BAhyLZTtcwnTlhwKJNcUTyeOHkfoE0sjX-kK63WDwCtI6h2u_JBQJQgsKRerIZR90c4Q95Is0q1tAqRTKh7P4IWUXelW4e0YE8bLFX5gECRhhR9qre9VrAFg7SYPjSAsBrK-P5kO31CcE66Q2XmulGu815b-E-gj9Lk4qo5v4hsj15ST09TzXawOw7wotU_ORA" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZmJzYnguY29tL3YvdDU5LjI3MDgtMjEvNTg1MDY2ODYyXzIzNzY3MTgwNDYwODE0MDZfODgxMzQ1MTY4NzY4NzYzNzc4Nl9uLmh0bWwvQUR1b25nLmh0bWw_X25jX2NhdD0xMTAmY2NiPTEtNyZfbmNfc2lkPTJiMGUyMiZfbmNfZXVpMj1BZUZZREtPQ3FKNjZkbUFxRGJYZzlfMFBlSW5JZUZiQ0FFMTRpY2g0VnNJQVRYTzVYNUF5LVM3Z3g1S0lwcVY3UjBRX2ItYzZfbE8xNlB6WXFZTFgzN2cwJl9uY19vaGM9dE9mMkg5S05iejhRN2tOdndFQXVIZkUmX25jX29jPUFkbGdOSXdjMXQ3SjFXa2lDTU81UEJ0ckxFajRrcThnQ1F2a29BWUFrYXhXbkNxbzBFblczQlVObVZxRWozbVZzRzQmX25jX3p0PTcmX25jX2h0PWNkbi5mYnNieC5jb20mX25jX2dpZD0ydElnVDdqTFl4Y0RKcVJleGxIZGhnJm9oPTAzX1E3Y0Qzd0cybm1UQU16OHA1SkJ2QWVpRmhNOGpEWFdfazI2U2l1OHVNbEJocENJbnFRJm9lPTY5MUJBQ0IxJmRsPTE"/><script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+</style>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#3b82f6',
+secondary: '#06b6d4'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+
+<!-- ================== ADDED: EFFECTS CSS ================== -->
+<style>
+/* Page load */
+body {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: fg_fade_in 0.6s ease-out forwards;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+@keyframes fg_fade_in {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in on scroll */
+.fg-fade {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+.fg-fade.fg-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slight scale hover for interactive cards */
+.fg-scale {
+  transition: transform 0.36s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s;
+  transform-origin: center;
+}
+.fg-scale:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* Small helper for delayed reveal (used by JS) */
+.fg-delay-1 { transition-delay: 0.08s; }
+.fg-delay-2 { transition-delay: 0.14s; }
+.fg-delay-3 { transition-delay: 0.20s; }
+
+/* Scroll progress bar (thin) */
+#fg-progress {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  width: 0%;
+  z-index: 60;
+}
+
+/* Make iframe (windy) rounded (already in your code but reinforce) */
+iframe {
+  border-radius: 14px;
+}
+
+/* Keep existing hover shadows smooth */
+.transition-shadow {
+  transition: box-shadow .28s ease, transform .28s ease;
+}
+
+/* Improve focus outline for accessibility */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 3px solid rgba(59,130,246,0.16);
+  outline-offset: 2px;
+}
+</style>
+<!-- ================== END ADDED CSS ================== -->
+
+</head>
+<body class="bg-gray-50 font-sans">
+<!-- progress bar -->
+<div id="fg-progress" aria-hidden="true"></div>
+
+<!-- Header -->
+<header class="bg-white shadow-sm border-b border-gray-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex items-center">
+        <h1 class="text-2xl font-['Pacifico'] text-primary">FLOODGUARD</h1>
+      </div>
+      <nav class="flex space-x-8">
+        <a href="#home" class="text-primary font-medium border-b-2 border-primary pb-1">Trang Chủ</a>
+        <a href="#information" class="text-gray-600 hover:text-primary transition-colors">Thông Tin</a>
+        <a href="#news" class="text-gray-600 hover:text-primary transition-colors">Tin Tức</a>
+        <a href="#guidebook" class="text-gray-600 hover:text-primary transition-colors">Sách Hướng Dẫn</a>
+        <a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Liên Hệ</a>
+        <a href="#members" class="text-gray-600 hover:text-primary transition-colors">Thành Viên</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main>
+  <!-- Home Section -->
+  <section id="home" class="relative min-h-screen">
+    <!-- Hero Section -->
+    <div class="relative h-96 bg-cover bg-center bg-no-repeat" style="background-image: url('https://readdy.ai/api/search-image?query=Dramatic%20flood%20scene%20with%20rushing%20water%20and%20safety%20equipment%20in%20the%20background%2C%20emergency%20response%20vehicles%20and%20rescue%20teams%2C%20stormy%20sky%20with%20heavy%20rain%2C%20Vietnamese%20landscape%20with%20flooded%20areas%2C%20safety%20warning%20signs%20visible%2C%20professional%20emergency%20management%20scene%2C%20realistic%20photography%20style%2C%20high%20contrast%20lighting%2C%20dramatic%20atmosphere%20conveying%20urgency%20and%20preparedness&width=1200&height=400&seq=hero1&orientation=landscape')">
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+        <div class="text-white">
+          <h2 class="text-5xl font-bold mb-4">THƯ VIỆN HƯỚNG DẪN AN TOÀN</h2>
+          <p class="text-xl mb-4 max-w-2xl">Kiến thức toàn diện về phòng chống lũ lụt và ứng phó thiên tai, bảo vệ cộng đồng và gia đình bạn</p>
+          <p class="text-2xl font-bold mb-8 max-w-2xl text-yellow-300 italic">"Chủ động hôm nay – An toàn ngày mai"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Three Columns Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Sứ mệnh -->
+        <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow fg-scale fg-fade fg-delay-1">
+          <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+            <i class="ri-heart-line text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Sứ Mệnh</h3>
+          <p class="text-gray-600 leading-relaxed">
+            FloodGuard ra đời với mục tiêu nâng cao kiến thức và kỹ năng ứng phó thiên tai cho cộng đồng Việt Nam.
+            Chúng tôi cung cấp thông tin kịp thời – chính xác, hướng dẫn kỹ năng an toàn, và hỗ trợ kết nối cứu trợ khi bão lũ xảy ra.
+            Sứ mệnh của chúng tôi là giúp mỗi người dân chủ động bảo vệ bản thân, gia đình và ngôi nhà của mình trước các hiểm họa thiên nhiên ngày càng khó lường.
+          </p>
+        </div>
+
+        <!-- Thông điệp -->
+        <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow fg-scale fg-fade fg-delay-2">
+          <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mb-6">
+            <i class="ri-message-line text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Thông Điệp</h3>
+          <p class="text-gray-600 leading-relaxed">
+            "An toàn cho bạn – Bình yên cho gia đình – Vững mạnh cho cộng đồng."
+            FloodGuard tin rằng chuẩn bị trước luôn là chìa khóa để giảm thiểu thiệt hại.
+            Hãy trang bị kiến thức, lên kế hoạch ứng phó và cùng nhau xây dựng một cộng đồng sẵn sàng vượt qua mọi thử thách của thiên tai.
+          </p>
+        </div>
+
+        <!-- Ý nghĩa -->
+        <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow fg-scale fg-fade fg-delay-3">
+          <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mb-6">
+            <i class="ri-shield-check-line text-white text-2xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Ý Nghĩa Của FloodGuard</h3>
+          <p class="text-gray-600 leading-relaxed">
+            FloodGuard không chỉ là một nền tảng cung cấp thông tin, mà còn là cầu nối hỗ trợ con người với con người trong những lúc khó khăn nhất.
+            Chúng tôi hướng đến việc tạo ra một mạng lưới cộng đồng biết chăm sóc lẫn nhau, chia sẻ kinh nghiệm, và hỗ trợ kịp thời khi có tình huống khẩn cấp.
+            FloodGuard được xây dựng với tinh thần đoàn kết – nhân ái – trách nhiệm, vì một Việt Nam an toàn và sẵn sàng trước mọi thiên tai.
+            Mỗi hành động nhỏ hôm nay có thể cứu sống một ai đó vào ngày mai.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Information Section -->
+  <section id="information" class="py-16 bg-white hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative text-center mb-12">
+        <div class="absolute inset-0 h-64 bg-cover bg-center rounded-lg opacity-75" style="background-image: url('https://readdy.ai/api/search-image?query=Devastating%20flood%20waters%20surging%20through%20Vietnamese%20countryside%2C%20massive%20flooding%20with%20dangerous%20currents%2C%20submerged%20houses%20and%20trees%2C%20dramatic%20storm%20clouds%20overhead%2C%20emergency%20flooding%20situation%2C%20high-impact%20natural%20disaster%20scene%2C%20professional%20documentary%20photography%2C%20vivid%20colors%20and%20sharp%20details%2C%20wide%20panoramic%20view%20of%20flood%20devastation&width=1200&height=600&seq=flood-bg2&orientation=landscape')"></div>
+        <div class="relative z-10 py-16">
+          <h2 class="text-6xl font-black text-gray-900 mb-4 uppercase tracking-wider" style="text-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.2);">THÔNG TIN VỀ LŨ LỤT</h2>
+          <p class="text-xl text-gray-600">Hiểu biết khoa học về hiện tượng lũ lụt và tác động của nó</p>
+        </div>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Nguyên lí xảy ra mưa lũ -->
+        <div class="bg-gray-50 rounded-lg p-8 fg-fade">
+          <div class="flex items-start space-x-6">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="ri-cloud-line text-blue-600 text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Nguyên Lí Xảy Ra Mưa Lũ</h3>
+              <p class="text-gray-600 mb-4">
+                Lũ lụt xảy ra khi lượng nước mưa vượt quá khả năng thoát nước của đất và hệ thống thoát nước.
+                Quá trình này bao gồm các yếu tố như cường độ mưa, độ thấm của đất, địa hình và hệ thống thoát nước.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-semibold text-gray-900 mb-2">Yếu tố khí hậu</h4>
+                  <p class="text-sm text-gray-600">Áp thấp nhiệt đới, bão, mưa monsoon</p>
+                </div>
+                <div class="bg-white p-4 rounded">
+                  <h4 class="font-semibold text-gray-900 mb-2">Yếu tố địa lý</h4>
+                  <p class="text-sm text-gray-600">Địa hình thấp, gần sông, độ dốc địa hình</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cách hoạt động của một trận lũ -->
+        <div class="bg-gray-50 rounded-lg p-8 fg-fade">
+          <div class="flex items-start space-x-6">
+            <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="ri-water-line text-cyan-600 text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Cách Hoạt Động Của Một Trận Lũ</h3>
+              <p class="text-gray-600 mb-4">
+                Một trận lũ diễn ra theo các giai đoạn: hình thành, phát triển, đỉnh lũ và rút lũ.
+                Hiểu rõ các giai đoạn này giúp dự báo và ứng phó kịp thời.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <div class="bg-white px-4 py-2 rounded-full">
+                  <span class="text-sm font-medium text-gray-700">1. Hình thành</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-full">
+                  <span class="text-sm font-medium text-gray-700">2. Phát triển</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-full">
+                  <span class="text-sm font-medium text-gray-700">3. Đỉnh lũ</span>
+                </div>
+                <div class="bg-white px-4 py-2 rounded-full">
+                  <span class="text-sm font-medium text-gray-700">4. Rút lũ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thời gian lũ đến -->
+        <div class="bg-gray-50 rounded-lg p-8 fg-fade">
+          <div class="flex items-start space-x-6">
+            <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="ri-time-line text-orange-600 text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Thời Gian Lũ Đến</h3>
+              <p class="text-gray-600 mb-4">
+                Tại Việt Nam, mùa lũ thường diễn ra từ tháng 7 đến tháng 11, với đỉnh cao vào tháng 9-10.
+                Thời gian cụ thể phụ thuộc vào từng vùng miền và điều kiện thời tiết.
+              </p>
+              <div class="bg-white p-4 rounded">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div>
+                    <div class="text-2xl font-bold text-primary">Bắc Bộ</div>
+                    <div class="text-sm text-gray-600">Tháng 7-9</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold text-primary">Trung Bộ</div>
+                    <div class="text-sm text-gray-600">Tháng 9-12</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold text-primary">Tây Nguyên</div>
+                    <div class="text-sm text-gray-600">Tháng 8-11</div>
+                  </div>
+                  <div>
+                    <div class="text-2xl font-bold text-primary">Nam Bộ</div>
+                    <div class="text-sm text-gray-600">Tháng 8-10</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sức ảnh hưởng của lũ -->
+        <div class="bg-gray-50 rounded-lg p-8 fg-fade">
+          <div class="flex items-start space-x-6">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="ri-alert-line text-red-600 text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Sức Ảnh Hưởng Của Lũ</h3>
+              <p class="text-gray-600 mb-4">
+                Lũ lụt có tác động sâu rộng đến nhiều lĩnh vực của đời sống xã hội, từ kinh tế,
+                môi trường đến sức khỏe cộng đồng.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded text-center">
+                  <i class="ri-home-line text-3xl text-gray-600 mb-2"></i>
+                  <h4 class="font-semibold text-gray-900">Nhà cửa</h4>
+                  <p class="text-sm text-gray-600">Ngập úng, sạt lở</p>
+                </div>
+                <div class="bg-white p-4 rounded text-center">
+                  <i class="ri-seedling-line text-3xl text-gray-600 mb-2"></i>
+                  <h4 class="font-semibold text-gray-900">Nông nghiệp</h4>
+                  <p class="text-sm text-gray-600">Mất mùa, thiệt hại</p>
+                </div>
+                <div class="bg-white p-4 rounded text-center">
+                  <i class="ri-road-line text-3xl text-gray-600 mb-2"></i>
+                  <h4 class="font-semibold text-gray-900">Giao thông</h4>
+                  <p class="text-sm text-gray-600">Chia cắt, tắc đường</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thiệt hại do lũ gây ra -->
+        <div class="bg-gray-50 rounded-lg p-8 fg-fade">
+          <div class="flex items-start space-x-6">
+            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <i class="ri-bar-chart-line text-purple-600 text-2xl"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold text-gray-900 mb-4">Thiệt Hại Do Lũ Gây Ra</h3>
+              <p class="text-gray-600 mb-6">
+                Thống kê thiệt hại do lũ lụt gây ra hàng năm tại Việt Nam cho thấy mức độ nghiêm trọng
+                của vấn đề này đối với phát triển kinh tế - xã hội.
+              </p>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-red-600 mb-2">200+</div>
+                  <div class="text-sm text-gray-600">Người thiệt mạng/năm</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-orange-600 mb-2">15,000</div>
+                  <div class="text-sm text-gray-600">Tỷ đồng thiệt hại</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-blue-600 mb-2">500,000</div>
+                  <div class="text-sm text-gray-600">Hộ gia đình bị ảnh hưởng</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-3xl font-bold text-green-600 mb-2">100,000</div>
+                  <div class="text-sm text-gray-600">Hecta cây trồng mất mùa</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section id="news" class="py-16 bg-gray-50 hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Tin Tức Thời Tiết</h2>
+        <p class="text-xl text-gray-600">Cập nhật thông tin thời tiết và dự báo mới nhất</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Tin tức thời tiết Việt Nam -->
+        <div class="bg-white rounded-lg shadow-md p-6 fg-fade fg-scale">
+          <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+            <i class="ri-news-line text-primary mr-2"></i>
+            Tin Tức Thời Tiết Việt Nam
+          </h3>
+          <div class="space-y-4">
+            <article class="border-b border-gray-200 pb-4">
+              <img src="https://readdy.ai/api/search-image?query=Heavy%20rain%20and%20flooding%20in%20Vietnam%20city%20streets%2C%20people%20walking%20through%20flood%20water%2C%20urban%20flooding%20scene%2C%20Vietnamese%20architecture%20in%20background%2C%20dramatic%20weather%20conditions%2C%20news%20photography%20style%2C%20realistic%20documentary%20approach%2C%20overcast%20sky%20with%20storm%20clouds&width=300&height=200&seq=news1&orientation=landscape" alt="Tin tức 1" class="w-full h-32 object-cover rounded mb-3">
+              <h4 class="font-semibold text-gray-900 mb-2">Bão số 8 đang tiến vào các tỉnh miền Trung</h4>
+              <p class="text-sm text-gray-600 mb-2">Cơ quan khí tượng cảnh báo bão mạnh cấp 10-11 sẽ đổ bộ vào các tỉnh từ Quảng Bình đến Quảng Nam...</p>
+              <span class="text-xs text-gray-500">2 giờ trước</span>
+            </article>
+
+            <article class="border-b border-gray-200 pb-4">
+              <img src="https://readdy.ai/api/search-image?query=Mekong%20Delta%20flooding%20scene%20with%20traditional%20Vietnamese%20boats%2C%20rural%20flooding%20in%20rice%20fields%2C%20farmers%20dealing%20with%20flood%20water%2C%20Vietnamese%20countryside%20landscape%2C%20monsoon%20season%20effects%2C%20documentary%20photography%20style%2C%20natural%20lighting%2C%20authentic%20rural%20Vietnam&width=300&height=200&seq=news2&orientation=landscape" alt="Tin tức 2" class="w-full h-32 object-cover rounded mb-3">
+              <h4 class="font-semibold text-gray-900 mb-2">Đồng bằng sông Cửu Long ngập sâu do triều cường</h4>
+              <p class="text-sm text-gray-600 mb-2">Nhiều tuyến đường tại TP.HCM và các tỉnh miền Tây bị ngập úng do ảnh hưởng của triều cường...</p>
+              <span class="text-xs text-gray-500">4 giờ trước</span>
+            </article>
+
+            <article class="pb-4">
+              <img src="https://readdy.ai/api/search-image?query=Northern%20Vietnam%20mountainous%20region%20landslide%20warning%2C%20steep%20terrain%20with%20heavy%20rain%2C%20mountain%20villages%20at%20risk%2C%20Vietnamese%20highland%20landscape%2C%20emergency%20preparedness%20scene%2C%20dramatic%20weather%20conditions%2C%20safety%20warning%20atmosphere%2C%20realistic%20photography&width=300&height=200&seq=news3&orientation=landscape" alt="Tin tức 3" class="w-full h-32 object-cover rounded mb-3">
+              <h4 class="font-semibold text-gray-900 mb-2">Cảnh báo sạt lở đất tại các tỉnh miền núi phía Bắc</h4>
+              <p class="text-sm text-gray-600 mb-2">Do ảnh hưởng của mưa lớn kéo dài, nguy cơ sạt lở đất rất cao tại Lào Cai, Hà Giang, Cao Bằng...</p>
+              <span class="text-xs text-gray-500">6 giờ trước</span>
+            </article>
+          </div>
+        </div>
+
+        <!-- Dự báo thời tiết -->
+        <div class="bg-white rounded-lg shadow-md p-6 fg-fade fg-scale">
+          <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+            <i class="ri-cloud-line text-secondary mr-2"></i>
+            Dự Báo Thời Tiết
+          </h3>
+          <div class="space-y-4">
+            <div class="bg-gradient-to-r from-blue-50 to-cyan-50 p-4 rounded-lg">
+              <div class="flex justify-between items-center mb-4">
+                <span class="font-semibold text-gray-900">Hôm nay</span>
+                <span class="text-2xl">🌧️</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <div class="text-2xl font-bold text-gray-900">28°C</div>
+                  <div class="text-sm text-gray-600">Mưa vừa</div>
+                </div>
+                <div class="text-right">
+                  <div class="text-sm text-gray-600">Độ ẩm: 85%</div>
+                  <div class="text-sm text-gray-600">Gió: 15 km/h</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                <span class="text-sm font-medium">Thứ 2</span>
+                <span class="text-lg">⛈️</span>
+                <span class="text-sm">26° / 32°</span>
+                <span class="text-xs text-blue-600">80%</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                <span class="text-sm font-medium">Thứ 3</span>
+                <span class="text-lg">🌦️</span>
+                <span class="text-sm">25° / 30°</span>
+                <span class="text-xs text-blue-600">60%</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                <span class="text-sm font-medium">Thứ 4</span>
+                <span class="text-lg">☁️</span>
+                <span class="text-sm">27° / 33°</span>
+                <span class="text-xs text-blue-600">30%</span>
+              </div>
+              <div class="flex justify-between items-center p-3 bg-gray-50 rounded">
+                <span class="text-sm font-medium">Thứ 5</span>
+                <span class="text-lg">☀️</span>
+                <span class="text-sm">29° / 35°</span>
+                <span class="text-xs text-blue-600">10%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bản đồ thời tiết -->
+        <div class="bg-white rounded-lg shadow-md p-6 fg-fade">
+          <h3 class="text-xl font-bold text-gray-900 mb-6 flex items-center">
+            <i class="ri-map-line text-green-600 mr-2"></i>
+            Bản Đồ Khí Hậu Việt Nam
+          </h3>
+          <div class="col">
+            <div class="content-box">
+              <h2></h2>
+              <iframe src="https://embed.windy.com/embed2.html?lat=16.0&lon=107.5&zoom=5&overlay=rain&level=surface"
+                      style="height:430px; width:100%; border:none; border-radius:14px; overflow:hidden;">
+              </iframe>
+              <p style="opacity:0.7; font-size:0.85rem;">Windy – bản đồ thời tiết thời gian thực.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Guidebook Section -->
+  <section id="guidebook" class="py-16 bg-white hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Sách Hướng Dẫn An Toàn</h2>
+        <p class="text-xl text-gray-600">Kiến thức và kỹ năng cần thiết để ứng phó với lũ lụt</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Nguyên tắc an toàn -->
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 fg-fade">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+              <i class="ri-shield-check-line text-white text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Nguyên Tắc An Toàn</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-gray-900 mb-2">1. Luôn theo dõi thông tin dự báo</h4>
+              <p class="text-sm text-gray-600">Cập nhật thường xuyên tin tức thời tiết từ các nguồn chính thức</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-gray-900 mb-2">2. Chuẩn bị kế hoạch sơ tán</h4>
+              <p class="text-sm text-gray-600">Xác định tuyến đường và địa điểm an toàn để sơ tán khi cần thiết</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-gray-900 mb-2">3. Tránh xa vùng nguy hiểm</h4>
+              <p class="text-sm text-gray-600">Không đi qua vùng ngập sâu, gần cây cối có thể đổ, dây điện</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-gray-900 mb-2">4. Giữ liên lạc với gia đình</h4>
+              <p class="text-sm text-gray-600">Đảm bảo có phương tiện liên lạc và thông báo vị trí cho người thân</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Xử lí khi gặp lũ -->
+        <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-8 fg-fade">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4">
+              <i class="ri-alarm-warning-line text-white text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Xử Lí Khi Gặp Lũ</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
+              <h4 class="font-semibold text-red-700 mb-2">Bước 1: Giữ bình tĩnh</h4>
+              <p class="text-sm text-gray-600">Không hoảng loạn, đánh giá tình hình và tìm nơi an toàn</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
+              <h4 class="font-semibold text-orange-700 mb-2">Bước 2: Di chuyển lên cao</h4>
+              <p class="text-sm text-gray-600">Tìm nơi cao nhất có thể,
+              tránh ở tầng trệt khi nước dâng</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-yellow-500">
+              <h4 class="font-semibold text-yellow-700 mb-2">Bước 3: Gọi cứu hộ</h4>
+              <p class="text-sm text-gray-600">Dùng khăn,gậy, đèn hoặc liên hệ 113,114,115, đội cứu hộ địa phương nếu có thể</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-green-500">
+              <h4 class="font-semibold text-green-700 mb-2">Bước 4: Chờ cứu trợ</h4>
+              <p class="text-sm text-gray-600">Ở nơi an toàn, tiết kiệm thực phẩm và nước sạch</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sống chung với lũ -->
+        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-8 fg-fade">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+              <i class="ri-plant-line text-white text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Sống Chung Với Lũ</h3>
+          </div>
+          <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-green-700 mb-2">Thích ứng với môi trường</h4>
+              <p class="text-sm text-gray-600">Xây dựng nhà ở vùng cao, sử dụng vật liệu chống thấm, gia cố cửa, mái nhà và hệ thống thoát nước</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-green-700 mb-2">Giữ an toàn nguồn nước</h4>
+              <p class="text-sm text-gray-600">Không sử dụng nước ngập để nấu ăn hoặc sinh hoạt, đồng thời luôn đun sôi hoặc lọc nước trước khi dùng</p>
+            </div>
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <h4 class="font-semibold text-green-700 mb-2">Bảo vệ sức khỏe</h4>
+              <p class="text-sm text-gray-600">Tránh để da tiếp xúc lâu với nước bẩn và theo dõi các triệu chứng bệnh truyền nhiễm sau bão lũ</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Đồ dùng nên có -->
+        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-8 fg-fade">
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+              <i class="ri-suitcase-line text-white text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900">Đồ Dùng Nên Có</h3>
+          </div>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-flashlight-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Đèn pin</h5>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-medicine-bottle-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Thuốc men</h5>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-drop-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Nước sạch</h5>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-restaurant-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Thực phẩm khô</h5>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-phone-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Điện thoại</h5>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-t-shirt-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Quần áo</h5>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-money-dollar-circle-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Tiền mặt</h5>
+            </div>
+            <div class="bg-white p-3 rounded-lg shadow-sm text-center">
+              <i class="ri-file-text-line text-2xl text-purple-600 mb-2"></i>
+              <h5 class="font-medium text-gray-900 text-sm">Giấy tờ</h5>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 bg-gray-50 hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Liên Hệ Với Chúng Tôi</h2>
+        <p class="text-xl text-gray-600">Gửi câu hỏi hoặc góp ý để cùng xây dựng cộng đồng an toàn</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-lg shadow-md p-8 fg-fade">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">Gửi Tin Nhắn</h3>
+          <form class="space-y-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Họ và Tên</label>
+              <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập họ và tên của bạn">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+              <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập địa chỉ email">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Chủ Đề</label>
+              <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Chủ đề tin nhắn">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2">Nội Dung</label>
+              <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Nhập nội dung tin nhắn của bạn..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary text-white py-3 px-6 !rounded-button font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
+              Gửi Tin Nhắn
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="space-y-8 fg-fade">
+          <div class="bg-white rounded-lg shadow-md p-8">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">📞 Hotline cứu nạn – cứu hộ</h3>
+            <div class="space-y-6">
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-phone-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">112 – Tổng đài Khẩn cấp Quốc gia</h4>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-phone-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">113 – Công an</h4>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-phone-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">114 – Cứu hỏa – Cứu nạn</h4>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-phone-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">115 – Cấp cứu y tế</h4>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-phone-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">Đường dây nóng Ban Chỉ đạo PCTT</h4>
+                  <p class="text-gray-600">+84 243 822 3528</p>
+                </div>
+              </div>
+              <div class="flex items-start space-x-4">
+                <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <i class="ri-phone-line text-white text-xl"></i>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-900 mb-1">Trung tâm dự báo KTTV Quốc gia</h4>
+                  <p class="text-gray-600">+84 243 858 2628</p>
+                </div>
+              </div>
+
+              <!-- Map -->
+              <div class="bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">🌐 Liên kết chính phủ & thông tin thiên tai</h3>
+                <div class="gov-links">
+                  <p><a href="https://chinhphu.vn" target="_blank">Cổng thông tin Chính phủ</a></p>
+                  <p><a href="https://phongchongthientai.mard.gov.vn" target="_blank">Phòng chống thiên tai Việt Nam</a></p>
+                  <p><a href="https://nchmf.gov.vn" target="_blank">Trung tâm dự báo KTTV Quốc gia</a></p>
+                  <p><a href="https://baochinhphu.vn" target="_blank">Báo Chính phủ</a></p>
+                  <p><a href="https://maps.gov.vn" target="_blank">Bản đồ Việt Nam – Chính phủ</a></p>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div class="bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-xl font-bold text-gray-900 mb-4">Kết Nối Với Chúng Tôi</h3>
+                <div class="flex space-x-4">
+                  <a href="#" class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                    <i class="ri-facebook-fill text-xl"></i>
+                  </a>
+                  <a href="#" class="w-12 h-12 bg-sky-500 rounded-full flex items-center justify-center text-white hover:bg-sky-600 transition-colors">
+                    <i class="ri-twitter-fill text-xl"></i>
+                  </a>
+                  <a href="#" class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                    <i class="ri-youtube-fill text-xl"></i>
+                  </a>
+                  <a href="#" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white hover:bg-green-700 transition-colors">
+                    <i class="ri-whatsapp-fill text-xl"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Members Section -->
+  <section id="members" class="py-16 bg-white hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Đội Ngũ Sáng Tạo</h2>
+        <p class="text-xl text-gray-600">Những người đã cống hiến để xây dựng FloodGuard</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Member cards (kept as original) -->
+        <div class="bg-white rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow fg-fade">
+          <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t1.15752-9/582044263_1238131718142848_895186710714039575_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGUlGgX0plL-YBVssoK3HfKTlnkWRjStlVOWeRZGNK2VTNHVtWjSFNHf9PEMKy9Ea4WOvW9AGFTa2s2onveS86S&_nc_ohc=4ceymHC_T_kQ7kNvwF-Zq8_&_nc_oc=AdmA1mpUHD0NV81yUYovvAHjs-5MtpC_OrcPSe565cpopa36Fnde1OVXraM_woFek-Y&_nc_zt=23&_nc_ht=scontent.fhan14-2.fna&oh=03_Q7cD3wEgQobKfHlNVa5dd2pUa2rIG4Bw2K8DutbOZ5XjOb5RIw&oe=6941609F" alt="Bùi Quang Vinh" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Bùi Quang Vinh</h3>
+          <p class="text-primary font-medium mb-3">Trưởng Nhóm Dự Án</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow fg-fade">
+          <img src="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.15752-9/582408945_25190497677308071_9147524603843930253_n.jpg?stp=dst-jpg_s2048x2048_tt6&_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeEEYP1b5JELs13s1YTHcTiG_V9Hy1vlvAr9X0fLW-W8CkHZrI53WwrqXD2GJqtpJQtqsZcBfVmlKwrO6g2N13QF&_nc_ohc=kYkMk_PfBvUQ7kNvwFgiYwe&_nc_oc=AdmrEY6HDtD_X1YkDfbqPyxSCAtKETfv7ROgarcr0e9Meoq0jcHc_7dGvPVHWz8gL2Y&_nc_zt=23&_nc_ht=scontent.fhan14-3.fna&oh=03_Q7cD3wGQmq7AyfsyCHZSGA0DUAOVGYEf6LyTcPa0jNQcs0_9kA&oe=69418851" alt="Lại Tiến Trung" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Lại Tiến Trung</h3>
+          <p class="text-primary font-medium mb-3">Nghiên cứu viên</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow fg-fade">
+          <img src="https://scontent.fhan14-4.fna.fbcdn.net/v/t1.15752-9/584330442_1551449342532354_5895541376511101772_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGGrdfnlYNNs69ZvbpH0Ux99khj25acOTn2SGPblpw5OYRv0BKjelRZ2TB941_bTDGKGpv_yH2SMUZrG2IBh_1E&_nc_ohc=8SE9p9kjXrAQ7kNvwFp2j6M&_nc_oc=AdnQAXB2G5mA0q_1fnog_BqE2bfRhzMbyGkLwbjV9_D6StYyZTQ4OPUX10bkxhyTbaE&_nc_zt=23&_nc_ht=scontent.fhan14-4.fna&oh=03_Q7cD3wGJmmitBLBxso3wDTPBNZAWP7WAoo9rrMuwdGFA5OaACQ&oe=694177E9" alt="Nguyễn Hoàng Vũ" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Nguyễn Hoàng Vũ</h3>
+          <p class="text-primary font-medium mb-3">Nghiên cứu viên</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow fg-fade">
+          <img src="https://scontent.fhan14-5.fna.fbcdn.net/v/t1.15752-9/582351304_1206833318068544_4724009837747705711_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeE_fAD_s6Pdd_--pD--dVA66XKf6VdPes7pcp_pV096ztBq5K2ZiO8CCrtZwJfrVZc3MxDP8S2QLJ-qd84lQ0zn&_nc_ohc=ULv8CxoTj6sQ7kNvwGdJ2Vb&_nc_oc=Adkib6wsGZYywsZTiO1UmyK6_KjDUYlLhHj_ZBWNJ5qsvWldpxismHkXUWL2fyV4RRc&_nc_zt=23&_nc_ht=scontent.fhan14-5.fna&oh=03_Q7cD3wHPGCWrCBea9Ik5xrGTeOamgHGciflWLpFiZX9PXingmQ&oe=69415E67" alt="Trịnh Ánh Dương" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Trịnh Ánh Dương</h3>
+          <p class="text-primary font-medium mb-3">Thiết Kế UX/UI</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow fg-fade">
+          <img src="https://readdy.ai/api/search-image?query=Professional%20Vietnamese%20male%20researcher%20portrait%2C%20wearing%20formal%20shirt%2C%20intellectual%20appearance%2C%20clean%20white%20background%2C%20professional%20headshot%20photography%2C%20natural%20lighting%2C%20modern%20academic%20portrait%20style%2C%20high%20quality%20researcher%20photo&width=300&height=300&seq=member5&orientation=squarish" alt="Nguyễn Minh Thông" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Nguyễn Minh Thông</h3>
+          <p class="text-primary font-medium mb-3">Nghiên Cứu Viên</p>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-8 text-center hover:shadow-lg transition-shadow fg-fade">
+          <img src="https://readdy.ai/api/search-image?query=Professional%20Vietnamese%20female%20communications%20specialist%20portrait%2C%20wearing%20business%20attire%2C%20warm%20smile%2C%20clean%20white%20background%2C%20professional%20headshot%20photography%2C%20natural%20lighting%2C%20modern%20business%20portrait%20style%2C%20high%20quality%20corporate%20photo&width=300&height=300&seq=member6&orientation=squarish" alt="Đỗ Văn Bách Tuấn" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Đỗ Văn Bách Tuấn</h3>
+          <p class="text-primary font-medium mb-3">Nghiên cứu viên</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="col-span-1 md:col-span-2">
+        <h3 class="text-2xl font-['Pacifico'] text-primary mb-4">FLOODGUARD</h3>
+        <p class="text-gray-300 mb-4">
+          Thư viện hướng dẫn an toàn về phòng chống lũ lụt tại Việt Nam.
+          Chúng tôi cung cấp kiến thức khoa học và thực tế để bảo vệ cộng đồng.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+            <i class="ri-facebook-fill text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+            <i class="ri-twitter-fill text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+            <i class="ri-youtube-fill text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+            <i class="ri-mail-fill text-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Liên Kết Nhanh</h4>
+        <ul class="space-y-2">
+          <li><a href="#home" class="text-gray-300 hover:text-primary transition-colors">Trang Chủ</a></li>
+          <li><a href="#information" class="text-gray-300 hover:text-primary transition-colors">Thông Tin</a></li>
+          <li><a href="#news" class="text-gray-300 hover:text-primary transition-colors">Tin Tức</a></li>
+          <li><a href="#guidebook" class="text-gray-300 hover:text-primary transition-colors">Sách Hướng Dẫn</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Hỗ Trợ</h4>
+        <ul class="space-y-2">
+          <li><a href="#contact" class="text-gray-300 hover:text-primary transition-colors">Liên Hệ</a></li>
+          <li><a href="#members" class="text-gray-300 hover:text-primary transition-colors">Thành Viên</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Câu Hỏi Thường Gặp</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-primary transition-colors">Chính Sách Bảo Mật</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+      <p class="text-gray-400">&copy; 2025 FloodGuard. Developed by TeamHatLe.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ================== ADDED: EFFECTS & BEHAVIOR JS ================== -->
+<script id="fg-behavior">
+document.addEventListener('DOMContentLoaded', function() {
+  /* ---------- Scroll reveal (IntersectionObserver) ---------- */
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -8% 0px',
+    threshold: 0.12
+  };
+  const revealCb = (entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fg-show');
+        entry.target.classList.add('fg-show-applied'); // marker
+        entry.target.classList.add('fg-show'); // duplicate to ensure
+        // add class for CSS used earlier
+        entry.target.classList.add('fg-show'); // harmless
+        // map to the css class we used: fg-fade -> fg-show
+        entry.target.classList.add('fg-show');
+      }
+    });
+  };
+
+  // We'll add 'fg-fade' class to a set of common containers automatically,
+  // so you don't need to edit every element.
+  const autoSelect = [
+    'section .bg-white.rounded-lg',
+    'section .bg-gray-50.rounded-lg',
+    '.content-box',
+    '.max-w-7xl .grid > div',
+    '.max-w-7xl .grid > .bg-white',
+    '.max-w-7xl .grid > .bg-gradient-to-br',
+    '.max-w-7xl img',
+    'article',
+    '.bg-white.p-6',
+    '.bg-white.p-8'
+  ];
+
+  // add classes (fg-fade or fg-scale) to matched elements
+  autoSelect.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => {
+      // don't repeatedly add
+      if (!el.classList.contains('fg-fade')) {
+        el.classList.add('fg-fade');
+      }
+      // cards with shadow get scale hover
+      if (el.classList.contains('shadow-md') || el.classList.contains('shadow-sm')) {
+        el.classList.add('fg-scale');
+      }
+    });
+  });
+
+  // Now observe all fg-fade elements
+  const toReveal = document.querySelectorAll('.fg-fade');
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fg-show');
+        // Add small delay based on position to create stagger effect
+        const index = Array.from(toReveal).indexOf(entry.target);
+        entry.target.style.transitionDelay = (index % 6) * 0.06 + 's';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  toReveal.forEach(el => io.observe(el));
+
+  /* ---------- Scroll progress bar ---------- */
+  const progress = document.getElementById('fg-progress');
+  function updateProgress() {
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = window.scrollY;
+    const pct = (scrolled / (docHeight || 1)) * 100;
+    progress.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  /* ---------- Scrollspy: highlight nav link based on section in view ---------- */
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+  function onScrollSpy() {
+    const y = window.scrollY;
+    let current = sections[0] || null;
+    for (const sec of sections) {
+      const rect = sec.getBoundingClientRect();
+      if (rect.top <= 80 && rect.bottom > 120) {
+        current = sec;
+        break;
+      }
+    }
+    if (current) {
+      navLinks.forEach(a => {
+        const href = a.getAttribute('href') || '';
+        if (href.includes('#' + current.id)) {
+          a.classList.remove('text-gray-600');
+          a.classList.add('text-primary','font-medium','border-b-2','border-primary','pb-1');
+        } else {
+          a.classList.remove('text-primary','font-medium','border-b-2','border-primary','pb-1');
+          a.classList.add('text-gray-600');
+        }
+      });
+    }
+  }
+  window.addEventListener('scroll', onScrollSpy, { passive: true });
+  onScrollSpy();
+
+  /* ---------- Smooth show for elements already in viewport on load ---------- */
+  setTimeout(() => {
+    document.querySelectorAll('.fg-fade').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) {
+        el.classList.add('fg-show');
+      }
+    });
+  }, 120);
+
+  /* ---------- Accessibility: keyboard nav focus handling ---------- */
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Tab') {
+      document.documentElement.classList.add('user-is-tabbing');
+    }
+  });
+});
+</script>
+<!-- ================== END ADDED JS ================== -->
+
+<!-- Keep your navigation script (unchanged) -->
+<script id="navigation">
+document.addEventListener('DOMContentLoaded', function() {
+const navLinks = document.querySelectorAll('nav a');
+const sections = document.querySelectorAll('section');
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+// Remove active class from all links
+navLinks.forEach(l => {
+l.classList.remove('text-primary', 'font-medium', 'border-b-2', 'border-primary', 'pb-1');
+l.classList.add('text-gray-600');
+});
+// Add active class to clicked link
+this.classList.remove('text-gray-600');
+this.classList.add('text-primary', 'font-medium', 'border-b-2', 'border-primary', 'pb-1');
+// Hide all sections
+sections.forEach(section => {
+section.classList.add('hidden');
+});
+// Show target section
+const targetId = this.getAttribute('href').substring(1);
+const targetSection = document.getElementById(targetId);
+if (targetSection) {
+targetSection.classList.remove('hidden');
+}
+});
+});
+});
+</script>
+
+</body>
+</html>
